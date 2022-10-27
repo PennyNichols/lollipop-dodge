@@ -1,6 +1,6 @@
 let cvs = document.getElementById("canvas");
 let ctx = cvs.getContext("2d");
-let reloadNeeded = false;
+const reloadNeeded = false;
 // load images
 
 let bird = new Image();
@@ -82,11 +82,8 @@ function draw(){
 
         // detect collision
         
-        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){
-            if (!reloadNeeded) {
-                reloadNeeded = true;
-                window.location.reload(); // reload the page
-                }
+        if( bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY+bird.height >= pipe[i].y+constant) || bY + bird.height >=  cvs.height - fg.height){reloadNeeded = true;
+
         }
         
         if(pipe[i].x == 5){
@@ -109,10 +106,12 @@ function draw(){
     ctx.fillStyle = "#fff";
     ctx.font = "20px Verdana";
     ctx.fillText("Score : "+score,10,cvs.height-10);
-    
+
     requestAnimationFrame(draw);
     
-    
+    if (!reloadNeeded) {
+    window.location.reload(); // reload the page
+    }
 }
 
 
