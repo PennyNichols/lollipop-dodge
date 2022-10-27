@@ -1,6 +1,6 @@
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
-
+var reloadNeeded = false
 // load images
 
 var bird = new Image();
@@ -57,6 +57,10 @@ pipe[0] = {
 // draw images
 
 function draw(){
+    if (!reloadNeeded) {
+        reloadNeeded = true;
+        window.location.reload(); // reload the page
+      }
     
     ctx.drawImage(bg,0,0);
     
