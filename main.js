@@ -18,13 +18,13 @@ pipeSouth.src = "lollipopSouth.png";
 
 // some variables
 
-var gap = 110;
+var gap = 130;
 var constant;
 
 var bX = 10;
 var bY = 150;
 
-var gravity = 1.5;
+var gravity = 1.0;
 
 var score = 0;
 
@@ -98,7 +98,7 @@ function draw(){
     
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";
-    ctx.fillText("Score : "+score,10,cvs.height-20);
+    ctx.fillText("Score : "+score,10,cvs.height-10);
     
     requestAnimationFrame(draw);
     
